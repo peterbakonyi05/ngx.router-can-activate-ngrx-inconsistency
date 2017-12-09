@@ -1,17 +1,17 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { storeLogger } from 'ngrx-store-logger';
 
-import { CORE_REDUCER, CoreModule } from './core/index';
+import { CORE_REDUCER, CoreModule, AuthAnonymousGuard } from './core/index';
 
 import { AppComponent } from './app.component';
 import { HomePage } from './pages/home.page';
 import { LoginPage } from './pages/login.page';
 
-const routes = [
+const routes: Routes = [
   {
     path: '',
     component: HomePage,
@@ -19,7 +19,8 @@ const routes = [
   },
   {
     path: 'login',
-    component: LoginPage
+    component: LoginPage,
+    canActivate: [AuthAnonymousGuard]
   }
 ];
 

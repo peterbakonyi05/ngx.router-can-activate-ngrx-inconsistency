@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 
 import { CoreState } from '../state';
-import { ACTION_PREFIX } from './auth.action';
 import { AuthState, AuthenticationStatus } from './auth.model';
 
 @Injectable()
