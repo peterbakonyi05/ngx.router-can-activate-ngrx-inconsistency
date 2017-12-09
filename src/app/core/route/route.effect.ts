@@ -11,7 +11,7 @@ import * as route from './route.action';
 @Injectable()
 export class RouteEffect {
 
-  @Effect() login$: Observable<Action> = this.router.events
+  @Effect() resolveEnd$: Observable<Action> = this.router.events
     .pipe(
     filter(e => e instanceof ResolveEnd),
     tap(() => console.log('RESOLVE END EFFECT IS RUNNING')),
